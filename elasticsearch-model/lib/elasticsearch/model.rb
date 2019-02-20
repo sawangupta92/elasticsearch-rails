@@ -22,6 +22,7 @@ require 'elasticsearch/model/indexing'
 require 'elasticsearch/model/naming'
 require 'elasticsearch/model/serializing'
 require 'elasticsearch/model/searching'
+require 'elasticsearch/model/retrieving'
 require 'elasticsearch/model/callbacks'
 
 require 'elasticsearch/model/proxy'
@@ -96,6 +97,7 @@ module Elasticsearch
           include Elasticsearch::Model::Naming::ClassMethods
           include Elasticsearch::Model::Indexing::ClassMethods
           include Elasticsearch::Model::Searching::ClassMethods
+          include Elasticsearch::Model::Retrieving::ClassMethods
         end
 
         Elasticsearch::Model::Proxy::InstanceMethodsProxy.class_eval do
