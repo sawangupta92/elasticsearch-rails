@@ -30,7 +30,7 @@ module Elasticsearch
         # @return [Hash] The response from Elasticsearch
         #
         def execute!
-          klass.client.search(@definition)
+          klass.client.get(@definition)
         end
       end
 
