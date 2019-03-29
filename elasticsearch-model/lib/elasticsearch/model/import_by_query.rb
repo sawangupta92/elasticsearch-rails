@@ -137,6 +137,7 @@ module Elasticsearch
             else
               errors.size
           end
+          response
         end
 
         # def __batch_to_bulk(batch, transform)
