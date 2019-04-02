@@ -23,6 +23,7 @@ require 'elasticsearch/model/naming'
 require 'elasticsearch/model/serializing'
 require 'elasticsearch/model/searching'
 require 'elasticsearch/model/retrieving'
+require 'elasticsearch/model/deleting'
 require 'elasticsearch/model/import_by_query'
 require 'elasticsearch/model/callbacks'
 
@@ -70,7 +71,7 @@ module Elasticsearch
   #     # ...
   #
   module Model
-    METHODS = [:search, :mapping, :mappings, :settings, :index_name, :document_type, :import, :query_import]
+    METHODS = [:search, :mapping, :mappings, :settings, :index_name, :document_type, :import, :query_import, :deleting]
 
     # Adds the `Elasticsearch::Model` functionality to the including class.
     #
@@ -127,6 +128,7 @@ module Elasticsearch
         self.__elasticsearch__.class_eval do
           include Elasticsearch::Model::Importing::ClassMethods
           include Elasticsearch::Model::ImportByQuery::ClassMethods
+          include Elasticsearch::Model::Deleting::ClassMethods
           include Adapter.from_class(base).importing_mixin
         end
 
